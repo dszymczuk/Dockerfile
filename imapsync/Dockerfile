@@ -2,14 +2,6 @@
 # $Id: INSTALL.Docker_build.txt,v 1.7 2018/04/10 00:16:18 gilles Exp gilles $
 # based on: https://github.com/imapsync/imapsync/blob/master/INSTALL.d/INSTALL.Docker_build.txt
 
-
-=================================================
-= Building an imapsync docker image from Debian = 
-=================================================
-
-
-# Dockerfile for building a docker imapsync image
-
 FROM debian:stretch
 
 LABEL maintainer "gilles@lamiral.info"
@@ -50,5 +42,3 @@ RUN wget -N https://imapsync.lamiral.info/imapsync \
 USER nobody
 
 CMD ["/usr/bin/imapsync"]
-
-# End of Dockerfile
