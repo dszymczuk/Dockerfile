@@ -31,6 +31,7 @@ RUN apt-get update \
   libunicode-string-perl \
   liburi-perl  \
   libwww-perl \
+  libio-socket-inet6-perl \
   procps \
   wget \
   && rm -rf /var/lib/apt/lists/*
