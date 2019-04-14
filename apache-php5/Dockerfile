@@ -23,6 +23,10 @@ rm -rf /var/lib/apt/lists/*
 
 RUN echo "memory_limit=512M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
+RUN echo "upload_max_filesize = 256M\n" \
+         "post_max_size = 256M\n" \
+         > /usr/local/etc/php/conf.d/uploads.ini
+
 RUN a2enmod rewrite
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
