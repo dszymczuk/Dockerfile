@@ -14,3 +14,7 @@ rm -rf /var/lib/apt/lists/* && \
 cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 RUN echo "memory_limit=512M" > /etc/php/7.0/apache2/conf.d/memory-limit.ini
+
+RUN echo "upload_max_filesize = 256M\n" \
+         "post_max_size = 256M\n" \
+         > /etc/php/7.0/apache2/conf.d/uploads.ini
