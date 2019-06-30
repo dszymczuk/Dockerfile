@@ -22,3 +22,10 @@ RUN echo "upload_max_filesize = 256M\n" \
 RUN a2enmod rewrite
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# eneble .htaccess overrides for /var/www
+RUN echo "<Directory /var/www/html>" >> /etc/apache2/apache2.conf
+RUN echo "	Options Indexes FollowSymLinks" >> /etc/apache2/apache2.conf
+RUN echo "	AllowOverride All" >> /etc/apache2/apache2.conf
+RUN echo "	Require all granted" >> /etc/apache2/apache2.conf
+RUN echo "</Directory>" >> /etc/apache2/apache2.conf
