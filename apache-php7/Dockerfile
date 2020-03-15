@@ -1,4 +1,4 @@
-FROM nimmis/apache
+FROM dszymczuk/apache-basic
 
 MAINTAINER Damian Szymczuk (dszymczuk)
 
