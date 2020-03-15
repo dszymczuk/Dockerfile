@@ -8,16 +8,16 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
 apt-get install -y php libapache2-mod-php  \
 php-fpm php-cli php-mysqlnd php-pgsql php-sqlite3 php-redis \
-php-apcu php-intl php-imagick php-mcrypt php-json php-gd php-curl php7.0-mbstring php7.0-zip php7.0-xml && \
+php-apcu php-intl php-imagick php-json php-gd php-curl php-mbstring php-zip php-xml && \
 phpenmod mcrypt && \
 rm -rf /var/lib/apt/lists/* && \
 cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
-RUN echo "memory_limit=512M" > /etc/php/7.0/apache2/conf.d/memory-limit.ini
+RUN echo "memory_limit=512M" > /etc/php/7.2/apache2/conf.d/memory-limit.ini
 
 RUN echo "upload_max_filesize = 256M\n" \
          "post_max_size = 256M\n" \
-         > /etc/php/7.0/apache2/conf.d/uploads.ini
+         > /etc/php/7.2/apache2/conf.d/uploads.ini
 
 RUN a2enmod rewrite
 
