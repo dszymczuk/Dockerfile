@@ -34,6 +34,7 @@ RUN apt-get update \
   libio-socket-inet6-perl \
   procps \
   wget \
+  libfile-tail-perl \
   && rm -rf /var/lib/apt/lists/*
 
 RUN wget -N https://imapsync.lamiral.info/imapsync \
