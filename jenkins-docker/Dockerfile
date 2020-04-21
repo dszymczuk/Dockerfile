@@ -20,9 +20,12 @@ RUN  add-apt-repository \
 # Install the latest Docker CE binaries   
 RUN apt-get update && \
    apt-get -y install docker-ce
+   
+# Get latest docker compose released tag
+RUN COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
 
-# Install Docker Compose
-RUN curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+# Install docker-compose
+RUN sh -c "curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
 RUN chmod +x /usr/local/bin/docker-compose
 
 # Clean up
