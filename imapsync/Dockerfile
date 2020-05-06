@@ -8,6 +8,7 @@ LABEL maintainer "gilles@lamiral.info"
 
 RUN apt-get update \
   && apt-get install -y \
+  libencode-imaputf7-perl \
   libjson-webtoken-perl \
   libauthen-ntlm-perl \
   libcgi-pm-perl \
